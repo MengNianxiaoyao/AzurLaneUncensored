@@ -2,7 +2,8 @@
 
 旨在打造更方便 ~~更Geek~~ 的碧蓝航线反和谐。
 
-
+**[更新日志](https://github.com/MengNianxiaoyao/AzurLaneUncensored/blob/master/Changelog.txt)**
+**[使用说明](https://github.com/MengNianxiaoyao/AzurLaneUncensored/blob/master/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.txt)**
 
 本仓库文件所有立绘文件均来自于 [azurlane_uncensored](https://github.com/taofan233/azurlane_uncensored)。该仓库实际是空项目，仅在 Releases 发布更新。每次更新不发布新 Release，而是直接替换已有 Release 的 Assets，给版本控制带来了极大的不便。AzurLaneUncensored 将这些文件添加进 git 中，并提供自动反和谐的方法。
 
@@ -21,11 +22,13 @@
 
    修改立绘文件有潜在风险的。
 
-3. **舰船名称反和谐**。舰船名称反和谐，以上方式均不能实现，只能通过修改 scripts 文件实现（com.bilibili.azurlane/files/AssetBundles/scripts32），本仓库和原仓库均不会提供修改过的 scripts 文件。scripts 文件包含各种游戏数据，修改它等同于制作科技，也就是外挂。同时，你也无法保证他人制作的 scripts 是否有修改其他内容 ~~有脏东西~~。
+3. **替换过场图反和谐**。过场图反和谐。使用日服过场图文件替换国服进行反和谐。
+
+4. **舰船名称反和谐**。舰船名称反和谐，以上方式均不能实现，只能通过修改 scripts 文件实现（com.bilibili.azurlane/files/AssetBundles/scripts32），本仓库和原仓库均不会提供修改过的 scripts 文件。scripts 文件包含各种游戏数据，修改它等同于制作科技，也就是外挂。同时，你也无法保证他人制作的 scripts 是否有修改其他内容 ~~有脏东西~~。
 
    修改 scripts 文件存在风险。
 
-4. **光环助手反和谐**。大部分公司不会在没有利益的情况下，持续地免费地发布内容，而光环助手恰恰有着持续的免费的内容更新。作为一个 Geek，你不应该使用第三方游戏客户端，以免帐号密码泄漏或造成更严重的后果。
+5. **光环助手反和谐**。大部分公司不会在没有利益的情况下，持续地免费地发布内容，而光环助手恰恰有着持续的免费的内容更新。作为一个 Geek，你不应该使用第三方游戏客户端，以免帐号密码泄漏或造成更严重的后果。
 
    使用第三方游戏客户端反和谐，风险最高。
 
