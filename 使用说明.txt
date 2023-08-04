@@ -1,0 +1,24 @@
+注意事项：
+1. 将painting目录中的文件复制到/Android/data/com.bilibili.azurlane/files/AssetBundles/painting目录中；
+   将paitingface目录中的文件复制到/Android/data/com.bilibili.azurlane/files/AssetBundles/paintingface目录中；
+   将char目录中的文件复制到/Android/data/com.bilibili.azurlane/files/AssetBundles/char目录中；
+   将loadingbg目录中的文件复制到/Android/data/com.bilibili.azurlane/files/AssetBundles/loadingbg目录中；
+   将shipyardicon目录中的文件复制到/Android/data/com.bilibili.azurlane/files/AssetBundles/shipyardicon目录中；
+   将live2d目录中的文件复制到/Android/data/com.bilibili.azurlane/files/AssetBundles/live2d目录中；
+   将squareicon目录中的文件复制到/Android/data/com.bilibili.azurlane/files/AssetBundles/squareicon目录中；
+   将herohrzicon目录中文件复制到/Android/data/com.bilibili.azurlane/files/AssetBundles/herohrzicon目录中；
+   将localization.txt文件复制到/Android/data/com.bilibili.azurlane/files/目录中。
+
+2. 每次更新之后需要重新执行一遍以上操作。
+
+备注：painting目录中名字对应的即为该舰娘的反和谐文件
+         char目录中为对应的SD小人文件
+         shipyardicon目录中对应的为船坞中的头像文件
+         live2d目录中对应的即为该舰娘的live2d文件
+         squareicon目录为演习头像文件
+         herohrzicon目录为释放技能时的技能头像文件
+         loadingbg目录为过场图的文件
+
+舰娘预览图请在立绘预览压缩包中查看，如果不喜欢补丁版请自行删除对应名称的文件即可。
+
+更改客户端可能有封号风险 出现任何封号 请自行承担责任 
