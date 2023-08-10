@@ -3,8 +3,7 @@ on:
   push:
   schedule:
     # UTC 21:00 -> CST (China) 5:00
-    - cron: '0 21 * * *'
-
+    - cron: '0 4,14,22 * * *'
 name: Gitee mirror
 
 jobs:
