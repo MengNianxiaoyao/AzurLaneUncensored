@@ -1,8 +1,12 @@
 on:
   workflow_dispatch:
   push:
+      branches:
+      - master
+      tags:
+      - '*'
   schedule:
-    # UTC 21:00 -> CST (China) 5:00
+    # UTC 22:00 -> CST (China) 6:00
     - cron: '0 4,14,22 * * *'
 name: Gitee mirror
 
