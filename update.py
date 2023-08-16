@@ -30,8 +30,8 @@ def update():
         os.mkdir('./files/AssetBundles/sharecfgdata/')
     open("./files/AssetBundles/sharecfgdata/gametip", "wb+").write(repo.content)
 
-    if os.path.exists('./files/char'):
-        shutil.rmtree('./files/char')
+    if os.path.exists('./files/AssetBundles/char'):
+        shutil.rmtree('./files/AssetBundles/char')
 
     shutil.rmtree('./tmp')
 
