@@ -1,13 +1,35 @@
 import os
-import requests
+import requests, requests_cache
+import shutil
 
 url = os.environ['URL']
 
 def update():
+    shutil.rmtree('./files')
+    if not os.path.exists('./tmp'):
+        os.mkdir('./tmp')
+    res = []
+    session = requests_cache.CachedSession(cache_control=True, backend='memory')
+    data = session.get('https://api.github.com/repos/taofan233/azurlane_uncensored/releases').json()
+    for item in data:
+        if item['author']['login'] == 'taofan233':
+            res.append(item['tag_name'])
+    res = res[0]
+    assets =  requests.get(f'https://github.com/taofan233/azurlane_uncensored/releases/download/{res}/uncensored.plus.{res}.zip')
+    open(f"./tmp/uncensored.plus.{res}.zip", "wb+").write(assets.content)
+    import zipfile
+    with zipfile.ZipFile(f'./tmp/uncensored.plus.{res}.zip', 'r') as zf:
+        zf.extractall('./tmp/')
+    shutil.copytree('./tmp/files', './files')
+
+    shutil.copytree('./loadingbg', './files/AssetBundles/loadingbg')
+
     repo = requests.get(f'{url}')
     if not os.path.exists('./files/AssetBundles/sharecfgdata/'):
         os.mkdir('./files/AssetBundles/sharecfgdata/')
     open("./files/AssetBundles/sharecfgdata/gametip", "wb+").write(repo.content)
+
+    shutil.rmtree('./tmp')
 
 if __name__ == '__main__':
     update()
