@@ -1,2 +1,0 @@
-Localization = true
-Localization_skin = true
