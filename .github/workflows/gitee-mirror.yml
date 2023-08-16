@@ -1,18 +1,18 @@
+name: Gitee mirror
+
 on:
   workflow_dispatch:
   push:
-      branches:
+    branches:
       - master
-      tags:
+    tags:
       - '*'
   schedule:
     # UTC 22:00 -> CST (China) 6:00
     - cron: '0 4,14,22 * * *'
-name: Gitee mirror
 
 jobs:
   run:
-    name: Gitee mirror
     runs-on: ubuntu-latest
     steps:
       - name: Get repo and time
