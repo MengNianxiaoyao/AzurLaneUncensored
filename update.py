@@ -5,7 +5,8 @@ import shutil
 url = os.environ['URL']
 
 def update():
-    shutil.rmtree('./files')
+    if os.path.exists('./files'):
+        shutil.rmtree('./files')
     if not os.path.exists('./tmp'):
         os.mkdir('./tmp')
     res = []
