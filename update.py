@@ -23,7 +23,7 @@ def update():
     if os.path.exists('./tmp/files') and os.path.exists('./files'):
         shutil.rmtree('./files')
         shutil.copytree('./tmp/files', './files')
-    shutil.copytree('./loadingbg', './files/AssetBundles/loadingbg')
+        shutil.copytree('./loadingbg', './files/AssetBundles/loadingbg')
     if os.path.exists('./files/AssetBundles/char'):
         shutil.rmtree('./files/AssetBundles/char')
 
