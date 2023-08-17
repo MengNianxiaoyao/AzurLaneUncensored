@@ -5,9 +5,9 @@ import shutil
 url = os.environ['URL']
 
 def update():
-    if os.path.exists('./files'):
+    if os.path.isdir('./files'):
         shutil.rmtree('./files')
-    if not os.path.exists('./tmp'):
+    if not os.path.isdir('./tmp'):
         os.mkdir('./tmp')
     res = []
     session = requests_cache.CachedSession(cache_control=True, backend='memory')
@@ -26,11 +26,11 @@ def update():
     shutil.copytree('./loadingbg', './files/AssetBundles/loadingbg')
 
     repo = requests.get(f'{url}')
-    if not os.path.exists('./files/AssetBundles/sharecfgdata/'):
-        os.mkdir('./files/AssetBundles/sharecfgdata/')
+    if not os.path.isdir('./files/AssetBundles/sharecfgdata'):
+        os.mkdir('./files/AssetBundles/sharecfgdata')
     open("./files/AssetBundles/sharecfgdata/gametip", "wb+").write(repo.content)
 
-    if os.path.exists('./files/AssetBundles/char'):
+    if os.path.isdir('./files/AssetBundles/char'):
         shutil.rmtree('./files/AssetBundles/char')
 
     shutil.rmtree('./tmp')
