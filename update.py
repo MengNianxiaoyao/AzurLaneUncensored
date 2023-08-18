@@ -28,7 +28,7 @@ def update():
         shutil.rmtree('./files/AssetBundles/char')
 
     repo = requests.get(f'{url}')
-    if not os.path.isdir('./files/AssetBundles/sharecfgdata'):
+    if not os.path.exists('./files/AssetBundles/sharecfgdata'):
         os.mkdir('./files/AssetBundles/sharecfgdata')
     open("./files/AssetBundles/sharecfgdata/gametip", "wb+").write(repo.content)
 
