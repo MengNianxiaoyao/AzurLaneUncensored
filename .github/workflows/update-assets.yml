@@ -19,6 +19,12 @@ jobs:
           architecture: x64
       - name: Install dependencies
         run: pip install requests requests_cache rarfile
+      - name: Install Rartool
+        run: |
+          wget https://www.rarlab.com/rar/rarlinux-x64-623.tar.gz
+          tar -zxvf rarlinux-x64-623.tar.gz
+          cd rar/
+          make & make install
       - name: Update Assets
         env: 
           URL: ${{ secrets.URL }}
