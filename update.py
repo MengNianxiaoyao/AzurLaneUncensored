@@ -25,12 +25,13 @@ def update():
             with zipfile.ZipFile(f'./tmp/uncensored.plus.{res}.zip', 'r') as zf:
                 zf.extractall('./tmp/')
     elif name == f'uncensored.plus.{res}.rar':
-        assets =  requests.get(f'https://github.com/taofan233/azurlane_uncensored/releases/download/{res}/uncensored.plus.{res}.rar')
-        open(f"./tmp/uncensored.plus.{res}.rar", "wb+").write(assets.content)
-        if os.path.exists(f'./tmp/uncensored.plus.{res}.rar'):
-            import rarfile
-            with rarfile.RarFile(f'./tmp/uncensored.plus.{res}.rar', 'r') as zf:
-                zf.extractall('./tmp/')
+        return 1
+        # assets =  requests.get(f'https://github.com/taofan233/azurlane_uncensored/releases/download/{res}/uncensored.plus.{res}.rar')
+        # open(f"./tmp/uncensored.plus.{res}.rar", "wb+").write(assets.content)
+        # if os.path.exists(f'./tmp/uncensored.plus.{res}.rar'):
+        #     import rarfile
+        #     with rarfile.RarFile(f'./tmp/uncensored.plus.{res}.rar', 'r') as zf:
+        #         zf.extractall('./tmp/')
     if os.path.exists('./tmp/files') and os.path.exists('./files'):
         shutil.rmtree('./files')
         shutil.copytree('./tmp/files', './files')
