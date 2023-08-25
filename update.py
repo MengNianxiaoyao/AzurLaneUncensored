@@ -14,7 +14,7 @@ def update():
     for item in data:
         if item['author']['login'] == 'taofan233':
             res.append(item['tag_name'])
-            name.append(item['assets']['name'])
+            name.append(item['assets'][0]['name'])
     res = res[0]
     name = name[0]
     if name == f'uncensored.plus.{res}.zip':
