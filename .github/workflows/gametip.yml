@@ -31,4 +31,3 @@ jobs:
           author_email: 41898282+github-actions[bot]@users.noreply.github.com
           message: 'Gametip auto update'
           add: '.'
-          

@@ -3,7 +3,6 @@ import requests
 
 url = os.environ['URL']
 
-
 def update():
     repo = requests.get(f'{url}')
     if not os.path.exists('./files/AssetBundles/sharecfgdata'):
