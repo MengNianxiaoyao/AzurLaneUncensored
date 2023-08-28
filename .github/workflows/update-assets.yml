@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    outputs:
+      committed: ${{steps.commit.outputs.committed}}
     steps:
       - uses: actions/checkout@v3
       - name: Setup Python
@@ -29,6 +31,7 @@ jobs:
         run: |
           python update.py
       - name: Commit changes
+        id: commit
         uses: EndBug/add-and-commit@v9
         with:
           author_name: github-actions
