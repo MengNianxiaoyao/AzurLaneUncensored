@@ -37,7 +37,7 @@ jobs:
   GiteeMirror:
     runs-on: ubuntu-latest
     needs: build
-    if: needs.build.outputs.committed==true
+    if: needs.build.outputs.committed=='true'
     steps:
       - name: Get repo and time
         id: info
