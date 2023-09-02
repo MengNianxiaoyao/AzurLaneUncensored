@@ -9,7 +9,7 @@ on:
       - '*'
   schedule:
     # UTC 22:00 -> CST (China) 6:00
-    - cron: '0 0 0 * * *'
+    - cron: '0 0 * * *'
 
 jobs:
   run:
