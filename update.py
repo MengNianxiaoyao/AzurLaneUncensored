@@ -1,3 +1,5 @@
+import os
+import requests
 import shutil
 import tempfile
 from pathlib import Path
@@ -5,7 +7,7 @@ from pathlib import Path
 import patoolib
 import requests_cache
 
-
+url = os.environ['URL']
 
 def update():
     session = requests_cache.CachedSession(
@@ -29,6 +31,11 @@ def update():
     char_files = local_files / 'AssetBundles' / 'char'
     if char_files.exists():
         shutil.rmtree(char_files)
+    gametip_files = local_files / 'AssetBundles' / 'sharecfgdata'
+    if not gametip_files.exists():
+        os.mkdir(gametip_files)
+    repo = requests.get(f'{url}')
+    open("./files/AssetBundles/sharecfgdata/gametip", "wb+").write(repo.content)
     shutil.rmtree(tmp_dir)
 
 
