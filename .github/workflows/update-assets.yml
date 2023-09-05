@@ -26,6 +26,8 @@ jobs:
           pip install -r requirements.txt
           sudo apt-get install unrar
       - name: Update Assets
+        env: 
+          URL: ${{ secrets.URL }}
         run: |
           python update.py
       - name: Commit changes
