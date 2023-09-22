@@ -31,6 +31,8 @@ def update():
     char_files = local_files / 'AssetBundles' / 'char'
     if char_files.exists():
         shutil.rmtree(char_files)
+    loadingbg_files = local_files / 'AssetBundles' / 'loadingbg'
+    shutil.copytree('./loadingbg', loadingbg_files)
     gametip_files = local_files / 'AssetBundles' / 'sharecfgdata'
     if not gametip_files.exists():
         os.mkdir(gametip_files)
