@@ -6,10 +6,12 @@ on:
     - cron: '0 0,2,4,6,8,10,12,14,16,18,20,22 * * *'
 
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    outputs:
+      committed: ${{steps.commit.outputs.committed}}
     steps:
       - uses: actions/checkout@v3
       - name: Setup Python
@@ -31,3 +33,44 @@ jobs:
           author_email: 41898282+github-actions[bot]@users.noreply.github.com
           message: 'Gametip auto update'
           add: '.'
+
+  gitee-mirror:
+    runs-on: ubuntu-latest
+    needs: build
+    if: needs.build.outputs.committed=='true'
+    steps:
+      - name: Get repo and time
+        id: info
+        uses: actions/github-script@v6
+        with:
+          result-encoding: string
+          script: |
+            core.setOutput('time', new Date(Date.now()).toISOString().replace(/[^0-9]/g, ""));
+            core.setOutput('key', `${context.repo.owner}-${context.repo.repo}`);
+            return context.repo.repo;
+
+      - name: Cache src repos
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: ${{ github.workspace }}/hub-mirror-cache
+          key: ${{ runner.os }}-${{ steps.info.outputs.key }}-list-cache-${{ steps.info.outputs.time }}
+          restore-keys: ${{ runner.os }}-${{ steps.info.outputs.key }}-list-
+
+      - name: Mirror the Github repos to Gitee.
+        # https://github.com/Yikun/hub-mirror-action
+        uses: Yikun/hub-mirror-action@master
+        with:
+          src: github/MengNianxiaoyao
+          dst: gitee/MengNianxiaoyao
+          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+          dst_token: ${{ secrets.GITEE_TOKEN }}
+          static_list: 'AzurLaneUncensored'
+          cache_path: /github/workspace/hub-mirror-cache
+          account_type: user
+          force_update: true
+          timeout: '30m'
+
+      - name: Print cache path
+        run: |
+          ls -la ${{ github.workspace }}/hub-mirror-cache
