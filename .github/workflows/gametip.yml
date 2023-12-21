@@ -11,7 +11,7 @@ jobs:
     permissions:
       contents: write
     outputs:
-      committed: ${{steps.commit.outputs.committed}}
+      committed: ${{steps.update.outputs.committed}}
     steps:
       - uses: actions/checkout@v3
       - name: Setup Python
@@ -26,7 +26,7 @@ jobs:
           URL: ${{ secrets.URL }}
         run: |
           python gametip.py
-      - name: Commit changes
+      - name: 提交更改
         uses: EndBug/add-and-commit@v9
         with:
           author_name: github-actions
