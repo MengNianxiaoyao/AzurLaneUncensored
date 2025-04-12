@@ -3,7 +3,7 @@ name: Update Assets
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * 5'
 
 jobs:
   update:
@@ -30,8 +30,8 @@ jobs:
           URL: ${{ secrets.URL }}
         run: |
           python update.py
-      - name: 提交更改
-        id: 提交
+      - name: Commit changes
+        id: commit
         uses: EndBug/add-and-commit@v9.1.4
         with:
           author_name: github-actions
